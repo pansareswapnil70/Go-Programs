@@ -5,8 +5,23 @@ import (
 	"fmt"
 )
 
+type course struct {
+	Name     string `json:"coursename"`
+	Price    int
+	Platform string   `json:"website"`
+	Password string   `json:"-"`
+	Tags     []string `json:"tags,omitempty"`
+}
+
 func main() {
 	fmt.Println("Welcome to Json data")
+	lcocourse := []course{
+		{"ReactJs", 499, "lco.dev", "abc123", []string{"web-dev", "front-end"}},
+		{"Golang", 399, "linkedIn.com", "xyz123", nil},
+	}
+	fmt.Println(lcocourse)
+	finalJson, _ := json.MarshalIndent(&lcocourse, "", "\t")
+	fmt.Println(string(finalJson))
 	DecodeJson()
 }
 
@@ -26,5 +41,7 @@ func DecodeJson() {
 	`)
 
 	checkValid := json.Valid(jsondatafromweb)
-	fmt.Println(checkValid)
+	if checkValid {
+		fmt.Println("Json is valid")
+	}
 }
