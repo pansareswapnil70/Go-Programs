@@ -1,5 +1,5 @@
 module github.com/pansareswapnil70/buildapi
 
-go 1.20
+go 1.25.0
 
-require github.com/gorilla/mux v1.8.0 // indirect
+require github.com/gorilla/mux v1.8.0
