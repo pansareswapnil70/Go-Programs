@@ -8,6 +8,7 @@ func main() {
 	fmt.Println(swapnil)
 	swapnil.GetStatus()
 	swapnil.NewEmail()
+	fmt.Println(swapnil)
 }
 
 type User struct {
@@ -19,7 +20,7 @@ type User struct {
 func (u User) GetStatus() {
 	fmt.Println("Is user active: ", u.status)
 }
-func (u User) NewEmail() {
+func (u *User) NewEmail() {
 	u.email = "test@go.dev"
 	fmt.Println("Email of user is: ", u.email)
 }
